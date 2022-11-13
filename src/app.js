@@ -45,8 +45,11 @@ function openModal() {
     let dateElement = document.querySelector("#weather-time");
     let iconElement = document.querySelector(".temperature-emoji");
 
+    let country = response.data.country;
+    let countryAbr = country.substring(0,3);
     cityName.innerHTML = response.data.city;
-    countryName.innerHTML = response.data.country;
+
+    countryName.innerHTML = `(${countryAbr})`;
     cityDescription.innerHTML = response.data.condition.description;
 
     iconElement.setAttribute( "src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
@@ -68,9 +71,9 @@ function openModal() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
+    openModal();
     let city = document.querySelector("#city-input").value;
     search(city);
-    openModal();
   };
   
   let searchForm = document.querySelector("#search-form");
