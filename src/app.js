@@ -10,38 +10,43 @@ function openModal() {
   let cityModal = document.querySelector(".search-modal ");
   searchCity.addEventListener("click", openModal);
   
-//   function showDate(date) {
-//     let days = [
-//       "Sunday",
-//       "Monday",
-//       "Tuesday",
-//       "Wednesday",
-//       "Thursday",
-//       "Friday",
-//       "Saturday"
-//     ];
-//     let dayIndex = date.getDay();
-//     let day = days[dayIndex];
+  function formatDate(date) {
+    let currentDate = new Date(date);
+    console.log(currentDate);
+
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    let dayIndex = currentDate.getDay();
+    let day = days[dayIndex];
   
-//     let hours = date.getHours();
+    let hours = currentDate.getHours();
+    hours = (hours < 10) ? `0${hours}` : hours ;
   
-//     let minutes = date.getMinutes();
+    let minutes = currentDate.getMinutes();
+    minutes = (minutes < 10) ? `0${minutes}` : minutes ;
+
+    return `${day} ${hours}:${minutes}`;
+  }
   
-//     let today = document.querySelector("#date");
-//     today.innerHTML = `${day}   ${hours}:${minutes}`;
-//   }
-//   let currentDate = new Date();
-//   showDate(currentDate);
   
   const showCityData = (response) => {
     let cityName = document.querySelector("#city-title");
     let cityDescription = document.querySelector("#weather-type");
     let temperature = document.querySelector(".current-temp");
+    let dateElement = document.querySelector("#weather-time");
     // let tempEmoji = document.querySelector(".temperature-emoji");
     cityName.innerHTML = response.data.name;
     cityDescription.innerHTML = response.data.weather[0].description;
     // tempEmoji.innerHTML = response.data.weather[0].icon;
     temperature.innerHTML = response.data.main.temp;
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
   };
   
   function search(city) {
