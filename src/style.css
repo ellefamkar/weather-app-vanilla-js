@@ -1,7 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Fredoka+One&display=swap");
+
 *,
 *::after,
 *::before {
     padding: 0;
     margin: 0;
     list-style: none;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Dosis", sans-serif;
+  /* font-family: "Fredoka One", cursive; */
+}
+.weather-app-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background-color: #252443;
+  box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
+  -webkit-box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
+  box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
+}
+.fa-magnifying-glass {
+  font-size: 20px;
+  cursor: pointer;
+}
+.temperature {
+  position: relative;
+  top: -4px;
+  font-size: 64px;
+  right: -26px;
+}
+.temperature-emoji {
+  font-size: 76px;
+  position: relative;
+  top: 16px;
+  left: -18px;
+}
+.weather-condition {
+  position: relative;
+  top: -20px;
+  left: -34px;
+  opacity: 0.4;
+}
+.weather-condition a {
+  text-decoration: none;
+  color: #eaeaea;
+  opacity: 0.5;
+}
+.weather-condition a:hover,
+.weather-condition a:active {
+  color: #ffffff;
+  opacity: 1;
+}
+.active {
+  color: #ffffff;
+  opacity: 1;
+}
+.emoji-container {
+  border: none;
+  font-size: 25px;
+  border-radius: 150px;
+  background: linear-gradient(145deg, #21203c, #282748);
+  box-shadow: 7px 7px 13px #1f1e38, -7px -7px 13px #2b2a4e;
+}
+.search-modal {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 52px;
+  left: -25px;
+  background-color: #ffffff;
+  box-shadow: -2px 2px 6px 0px #bbbbbb;
+  display: none;
+}
+#date {
+  margin-bottom: 0.1rem;
+}
+#city-title {
+  font-size: 2rem;
+  line-height: 23px;
 }
