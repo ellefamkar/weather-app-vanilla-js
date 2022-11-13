@@ -35,7 +35,7 @@ body {
   position: relative;
   top: -4px;
   font-size: 64px;
-  right: -26px;
+  right: -45px;
 }
 .temperature-emoji {
   font-size: 76px;
@@ -44,10 +44,10 @@ body {
   left: -18px;
 }
 .weather-condition {
-  position: relative;
-  top: -20px;
-  left: -34px;
-  opacity: 0.4;
+    position: relative;
+    top: -59px;
+    left: -41px;
+    opacity: 0.4;
 }
 .weather-condition a {
   text-decoration: none;
@@ -94,8 +94,19 @@ white-space: nowrap;
 }
 
 .temperature-emoji{
-    width: 114px;
+    width: 130px;
     height: auto;
     top: -13px;
-    left: -34px;
+    left: -10px;
+    right: -10px;
+}
+
+.current-weather__description {
+    font-size: 14px;
+    opacity: 0.5;
+    line-height: 16px;
+}
+
+.current-weather__description p{
+    text-transform: capitalize;
 }

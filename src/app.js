@@ -39,24 +39,24 @@ function openModal() {
   const showCityData = (response) => {
     console.log(response);
     let cityName = document.querySelector("#city-title");
-    let countryName = document.querySelector("#country-title");
+    // let countryName = document.querySelector("#country-title");
     let cityDescription = document.querySelector("#weather-type");
     let temperature = document.querySelector(".current-temp");
     let dateElement = document.querySelector("#weather-time");
     let iconElement = document.querySelector(".temperature-emoji");
 
-    let country = response.data.country;
-    let countryAbr = country.substring(0,3);
+    // let country = response.data.country;
+    // let countryAbr = country.substring(0,3);
+    // countryName.innerHTML = `(${countryAbr})`;
+    
     cityName.innerHTML = response.data.city;
-
-    countryName.innerHTML = `(${countryAbr})`;
     cityDescription.innerHTML = response.data.condition.description;
+    temperature.innerHTML = Math.round(response.data.temperature.current);
+    dateElement.innerHTML = formatDate(response.data.time * 1000);
 
     iconElement.setAttribute( "src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     iconElement.setAttribute( "alt" , `${response.data.condition.description}`);
 
-    temperature.innerHTML = Math.round(response.data.temperature.current);
-    dateElement.innerHTML = formatDate(response.data.time * 1000);
   };
   
   function search(city) {
