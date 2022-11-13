@@ -50,6 +50,7 @@ function openModal() {
     cityDescription.innerHTML = response.data.condition.description;
 
     iconElement.setAttribute( "src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+    iconElement.setAttribute( "alt" , `${response.data.condition.description}`);
 
     temperature.innerHTML = Math.round(response.data.temperature.current);
     dateElement.innerHTML = formatDate(response.data.time * 1000);
