@@ -37,23 +37,30 @@ function openModal() {
   
   
   const showCityData = (response) => {
+    console.log(response);
     let cityName = document.querySelector("#city-title");
+    let countryName = document.querySelector("#country-title");
     let cityDescription = document.querySelector("#weather-type");
     let temperature = document.querySelector(".current-temp");
     let dateElement = document.querySelector("#weather-time");
-    // let tempEmoji = document.querySelector(".temperature-emoji");
-    cityName.innerHTML = response.data.name;
-    cityDescription.innerHTML = response.data.weather[0].description;
-    // tempEmoji.innerHTML = response.data.weather[0].icon;
-    temperature.innerHTML = response.data.main.temp;
-    dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    let iconElement = document.querySelector(".temperature-emoji");
+
+    cityName.innerHTML = response.data.city;
+    countryName.innerHTML = response.data.country;
+    cityDescription.innerHTML = response.data.condition.description;
+
+    iconElement.setAttribute( "src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+
+    temperature.innerHTML = Math.round(response.data.temperature.current);
+    dateElement.innerHTML = formatDate(response.data.time * 1000);
   };
   
   function search(city) {
-    let apiKey = "3df2faaa654dfbe28b4e2b8d1ff69774";
-    let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather`;
+    let apiKey = "f0bata7385ff184aeb7o2efc0a37f732";
+    let apiEndpoint = ` https://api.shecodes.io/weather/v1/current`;
+    let units = "metric";
     let apiUrl = `
-    ${apiEndpoint}?q=${city}&appid=${apiKey}&units=metric
+    ${apiEndpoint}?query=${city}&key=${apiKey}&units=${units}
     `;
     axios.get(apiUrl).then(showCityData);
   }

@@ -87,3 +87,16 @@ body {
   font-size: 2rem;
   line-height: 23px;
 }
+#country-title {
+width: 2ch;
+ overflow: hidden;
+white-space: nowrap;
+      
+}
+
+.temperature-emoji{
+    width: 114px;
+    height: auto;
+    top: -13px;
+    left: -34px;
+}
