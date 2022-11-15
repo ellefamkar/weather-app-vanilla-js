@@ -35,9 +35,10 @@ function openModal() {
     return `${day} ${hours}:${minutes}`;
   }
   
+
+  let celciusTemperature = null;
   
   const showCityData = (response) => {
-    console.log(response);
     let cityName = document.querySelector("#city-title");
     // let countryName = document.querySelector("#country-title");
     let cityDescription = document.querySelector("#weather-type");
@@ -48,10 +49,10 @@ function openModal() {
     // let country = response.data.country;
     // let countryAbr = country.substring(0,3);
     // countryName.innerHTML = `(${countryAbr})`;
-    
+    celciusTemperature = response.data.temperature.current;
     cityName.innerHTML = response.data.city;
     cityDescription.innerHTML = response.data.condition.description;
-    temperature.innerHTML = Math.round(response.data.temperature.current);
+    temperature.innerHTML = Math.round(celciusTemperature);
     dateElement.innerHTML = formatDate(response.data.time * 1000);
 
     iconElement.setAttribute( "src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
@@ -76,27 +77,6 @@ function openModal() {
     search(city);
   };
   
-  let searchForm = document.querySelector("#search-form");
-  searchForm.addEventListener("submit", handleSubmit);
-  
-  function convertToCelsius(event) {
-    event.preventDefault();
-    let temperature = document.querySelector(".temperature");
-    temperature.classList.add("active");
-    temperature.innerHTML = "19°";
-  }
-  let celcius = document.querySelector("#celcius-degree");
-  celcius.addEventListener("click", convertToCelsius);
-  
-  function convertTToFarenheight(event) {
-    event.preventDefault();
-    let temperature = document.querySelector(".temperature");
-    temperature.classList.add("active");
-    temperature.innerHTML = "66°";
-  }
-  let farenheight = document.querySelector("#farenheight-degree");
-  farenheight.addEventListener("click", convertTToFarenheight);
-  
   const handlePosition = (position) => {
     let longitude = position.coords.longitude;
     let latitude = position.coords.latitude;
@@ -117,8 +97,37 @@ function openModal() {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(handlePosition);
   };
+
   let currentBtn = document.querySelector("#current-location-btn");
   currentBtn.addEventListener("click", locationData);
   
+
+  
+  // function convertToCelsius(event) {
+  //   event.preventDefault();
+  //   let temperature = document.querySelector(".temperature");
+  //   temperature.classList.add("active");
+  //   temperature.innerHTML = "19°";
+  // }
+
+  // let celcius = document.querySelector("#celcius-degree");
+  // celcius.addEventListener("click", convertToCelsius);
+  
+  function convertTToFahrenheit(event) {
+    event.preventDefault();
+    let temperature = document.querySelector(".current-temp");
+    temperature.classList.add("active");
+
+    let fahrenheitTemp = (celciusTemperature * 9/5) + 32
+    temperature.innerHTML = Math.round(fahrenheitTemp);
+
+  }
+  let farenheight = document.querySelector("#farenheight-degree");
+  farenheight.addEventListener("click", convertTToFahrenheit);
+
+
+  let searchForm = document.querySelector("#search-form");
+  searchForm.addEventListener("submit", handleSubmit);
+
   search("Sydney");
   
