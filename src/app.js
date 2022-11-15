@@ -103,28 +103,32 @@ function openModal() {
   
 
   
-  // function convertToCelsius(event) {
-  //   event.preventDefault();
-  //   let temperature = document.querySelector(".temperature");
-  //   temperature.classList.add("active");
-  //   temperature.innerHTML = "19°";
-  // }
+  function convertToCelsius(event) {
+    event.preventDefault();
+    let temperature = document.querySelector(".current-temp");
+    farenheight.classList.remove("active");
+    celcius.classList.add("active");
 
-  // let celcius = document.querySelector("#celcius-degree");
-  // celcius.addEventListener("click", convertToCelsius);
+    temperature.innerHTML = Math.round(celciusTemperature);
+  }
+
   
   function convertTToFahrenheit(event) {
     event.preventDefault();
     let temperature = document.querySelector(".current-temp");
-    temperature.classList.add("active");
+    celcius.classList.remove("active");
+    farenheight.classList.add("active");
 
     let fahrenheitTemp = (celciusTemperature * 9/5) + 32
     temperature.innerHTML = Math.round(fahrenheitTemp);
-
   }
+
+
+  let celcius = document.querySelector("#celcius-degree");
+  celcius.addEventListener("click", convertToCelsius);
+
   let farenheight = document.querySelector("#farenheight-degree");
   farenheight.addEventListener("click", convertTToFahrenheit);
-
 
   let searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", handleSubmit);

@@ -55,8 +55,9 @@ body {
   opacity: 0.5;
 }
 .weather-condition a:hover,
-.weather-condition a:active {
-  color: #ffffff;
+.weather-condition a:active,
+.weather-condition a.active {
+  color: #ffe000;
   opacity: 1;
 }
 .active {
