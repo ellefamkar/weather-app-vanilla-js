@@ -153,35 +153,34 @@ const getForcast = (city) => {
   let currentBtn = document.querySelector("#current-location-btn");
   currentBtn.addEventListener("click", locationData);
   
+  
+  // function convertToCelsius(event) {
+  //   event.preventDefault();
+
+  //   let temperature = document.querySelector(".current-temp");
+  //   farenheight.classList.remove("active");
+  //   celcius.classList.add("active");
+
+  //   temperature.innerHTML = Math.round(celciusTemperature);
+  // }
 
   
-  function convertToCelsius(event) {
-    event.preventDefault();
+  // function convertTToFahrenheit(event) {
+  //   event.preventDefault();
+  //   let temperature = document.querySelector(".current-temp");
+  //   celcius.classList.remove("active");
+  //   farenheight.classList.add("active");
 
-    let temperature = document.querySelector(".current-temp");
-    farenheight.classList.remove("active");
-    celcius.classList.add("active");
-
-    temperature.innerHTML = Math.round(celciusTemperature);
-  }
-
-  
-  function convertTToFahrenheit(event) {
-    event.preventDefault();
-    let temperature = document.querySelector(".current-temp");
-    celcius.classList.remove("active");
-    farenheight.classList.add("active");
-
-    let fahrenheitTemp = (celciusTemperature * 9/5) + 32
-    temperature.innerHTML = Math.round(fahrenheitTemp);
-  }
+  //   let fahrenheitTemp = (celciusTemperature * 9/5) + 32
+  //   temperature.innerHTML = Math.round(fahrenheitTemp);
+  // }
 
 
-  let celcius = document.querySelector("#celcius-degree");
-  celcius.addEventListener("click", convertToCelsius);
+  // let celcius = document.querySelector("#celcius-degree");
+  // celcius.addEventListener("click", convertToCelsius);
 
-  let farenheight = document.querySelector("#farenheight-degree");
-  farenheight.addEventListener("click", convertTToFahrenheit);
+  // let farenheight = document.querySelector("#farenheight-degree");
+  // farenheight.addEventListener("click", convertTToFahrenheit);
 
   let searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", handleSubmit);
