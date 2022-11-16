@@ -27,7 +27,8 @@ body {
   -moz-box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
   box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
 }
-.fa-magnifying-glass {
+.fa-magnifying-glass,
+.fa-map-pin {
   font-size: 20px;
   cursor: pointer;
 }
@@ -114,4 +115,34 @@ white-space: nowrap;
 
 .forecast-img{
   width:55px;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-container .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 2px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+    left: 12px;
+    right :0;
+}
+
+.tooltip-container:hover .tooltiptext {
+  visibility: visible;
+}
+
+.is-displayed {
+  display: block;
 }

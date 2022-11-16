@@ -1,16 +1,15 @@
+let searchCity = document.querySelector(".fa-magnifying-glass");
+let cityModal = document.querySelector(".search-modal ");
+let celciusTemperature = null;
+
+
 function openModal() {
-    if (cityModal.style.display === "none") {
-      cityModal.style.display = "block";
-    } else {
-      cityModal.style.display = "none";
-    }
-  }
+  cityModal.classList.toggle("is-displayed");
+}
   
-  let searchCity = document.querySelector(".magnifyier-container");
-  let cityModal = document.querySelector(".search-modal ");
-  searchCity.addEventListener("click", openModal);
+searchCity.addEventListener("click", openModal);
   
-  function formatDate(date) {
+function formatDate(date) {
     let currentDate = new Date(date);
     console.log(currentDate);
 
@@ -33,18 +32,15 @@ function openModal() {
     minutes = (minutes < 10) ? `0${minutes}` : minutes ;
 
     return `${day} ${hours}:${minutes}`;
-  }
+}
 
-  let celciusTemperature = null;
+const formatDay = (timestamp) =>{
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  return days[day];
+};  
   
-
-
-  const formatDay = (timestamp) =>{
-    let date = new Date(timestamp * 1000);
-    let day = date.getDay();
-    let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    return days[day];
-  };
 
 const displayForecast = (response) => {
   let forecastElement = document.querySelector("#forecast");
