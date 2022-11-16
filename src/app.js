@@ -11,7 +11,6 @@ searchCity.addEventListener("click", openModal);
   
 function formatDate(date) {
     let currentDate = new Date(date);
-    console.log(currentDate);
 
     let days = [
       "Sunday",
@@ -124,6 +123,23 @@ const getForcast = (city) => {
     let city = document.querySelector("#city-input").value;
     search(city);
   };
+
+  const currentPositionCurrent = (response) =>{
+    document.querySelector("#city-title").innerHTML = response.data.name;
+    document.querySelector("#date").innerHTML = response.data.weather[0].description;
+    document.querySelector(".current-temp").innerHTML = response.data.main.temp;
+  };
+
+  const currentPositionGetForecast = (response) =>{
+    let longitude = response.longitude;
+    let latitude = response.latitude;
+    let apiKey = "f0bata7385ff184aeb7o2efc0a37f732";
+    let apiEndpoint = ` https://api.shecodes.io/weather/v1/forecast`;
+    let units = "metric";
+    let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=${units}`;
+
+    axios.get(apiUrl).then(displayForecast);  
+  }
   
   const handlePosition = (position) => {
     let longitude = position.coords.longitude;
@@ -133,12 +149,9 @@ const getForcast = (city) => {
     let apiUrl = `
     ${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric
     `;
-    axios.get(apiUrl).then((response) => {
-      document.querySelector("#city-title").innerHTML = response.data.name;
-      document.querySelector("#date").innerHTML = response.data.weather[0].description;
-      document.querySelector(".current-temp").innerHTML = response.data.main.temp;
-    });
-    openModal();
+    axios.get(apiUrl).then(currentPositionCurrent);
+
+    currentPositionGetForecast(position.coords);
   };
   
   const locationData = (event) => {

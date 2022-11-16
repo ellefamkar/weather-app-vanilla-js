@@ -76,7 +76,7 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   position: absolute;
-  top: 52px;
+  top: 57px;
   left: -25px;
   background-color: #ffffff;
   box-shadow: -2px 2px 6px 0px #bbbbbb;
@@ -130,8 +130,6 @@ white-space: nowrap;
   text-align: center;
   border-radius: 6px;
   padding: 5px 2px;
-
-  /* Position the tooltip */
   position: absolute;
   z-index: 1;
   top: 30px;
