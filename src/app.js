@@ -34,10 +34,60 @@ function openModal() {
 
     return `${day} ${hours}:${minutes}`;
   }
-  
 
   let celciusTemperature = null;
   
+
+
+  const formatDay = (timestamp) =>{
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    return days[day];
+  };
+
+const displayForecast = (response) => {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily;
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach((forecastDay, index) => {
+    if(index < 6){
+      forecastHTML = 
+      forecastHTML + `
+      <div class="col-sm-3 col-md-2">
+      <div class="card bg-transparent border-0">
+        <div class="card-body">
+          <span class="d-inline-block mb-3"> ${formatDay(forecastDay.time)}</span>
+          <div class="emoji-container p-2">
+            <img class="forecast-img" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"  alt="${forecastDay.condition.description}" />
+          </div>
+          <p class="mt-2 mb-1 max-forecast-temp">
+            ${Math.round(forecastDay.temperature.minimum)}°
+          </p>
+          <p class="my-1 opacity-50 min-forecast-temp">
+          ${Math.round(forecastDay.temperature.maximum)}°
+          </p>
+        </div>
+      </div>
+    </div>
+    `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+};
+
+const getForcast = (city) => {
+  let apiKey = "f0bata7385ff184aeb7o2efc0a37f732";
+  let apiEndpoint = ` https://api.shecodes.io/weather/v1/forecast`;
+  let units = "metric";
+  // let latitude = response.latitude;
+  // let longitude = response.longitude;
+  let apiUrl = `${apiEndpoint}?query=${city}&key=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);    
+};
+
   const showCityData = (response) => {
     let cityName = document.querySelector("#city-title");
     // let countryName = document.querySelector("#country-title");
@@ -59,6 +109,7 @@ function openModal() {
     iconElement.setAttribute( "src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     iconElement.setAttribute( "alt" , `${response.data.condition.description}`);
 
+    getForcast(response.data.city);
   };
   
   function search(city) {
@@ -106,6 +157,7 @@ function openModal() {
   
   function convertToCelsius(event) {
     event.preventDefault();
+
     let temperature = document.querySelector(".current-temp");
     farenheight.classList.remove("active");
     celcius.classList.add("active");
