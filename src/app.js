@@ -95,8 +95,8 @@ const getForcast = (city) => {
     let temperature = document.querySelector(".current-temp");
     let dateElement = document.querySelector("#weather-time");
     let iconElement = document.querySelector(".temperature-emoji");
-    farenheight.classList.remove("active");
-    celcius.classList.add("active");
+    // farenheight.classList.remove("active");
+    // celcius.classList.add("active");
     // let country = response.data.country;
     // let countryAbr = country.substring(0,3);
     // countryName.innerHTML = `(${countryAbr})`;
