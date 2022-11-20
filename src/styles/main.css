@@ -95,13 +95,13 @@ body {
   right: -10px;
 }
 
-.current-weather__description {
+.c-current-weather {
   font-size: 14px;
   opacity: 0.5;
   line-height: 16px;
 }
 
-.current-weather__description p {
+.c-current-weather p {
   text-transform: capitalize;
 }
 
