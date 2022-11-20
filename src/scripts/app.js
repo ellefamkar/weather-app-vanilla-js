@@ -89,9 +89,9 @@ const getForcast = (city) => {
 const showCityData = (response) => {
   let cityName = document.querySelector(".js-city-title");
   // let countryName = document.querySelector(".js-country-title");
-  let cityDescription = document.querySelector("#weather-type");
+  let cityDescription = document.querySelector(".js-weather-type");
   let temperature = document.querySelector(".current-temp");
-  let dateElement = document.querySelector("#weather-time");
+  let dateElement = document.querySelector(".js-weather-time");
   let iconElement = document.querySelector(".temperature-emoji");
   // farenheight.classList.remove("active");
   // celcius.classList.add("active");
