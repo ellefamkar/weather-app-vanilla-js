@@ -159,7 +159,7 @@ const getForcast = (city) => {
     navigator.geolocation.getCurrentPosition(handlePosition);
   };
 
-  let currentBtn = document.querySelector("#current-location-btn");
+  let currentBtn = document.querySelector("#js-current-location");
   currentBtn.addEventListener("click", locationData);
   
   

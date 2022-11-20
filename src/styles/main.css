@@ -109,12 +109,12 @@ body {
   width: 55px;
 }
 
-.tooltip-container {
+.c-tooltip {
   position: relative;
   display: inline-block;
 }
 
-.tooltip-container .tooltiptext {
+.c-tooltip .c-tooltip__description {
   visibility: hidden;
   width: 120px;
   background-color: black;
@@ -129,7 +129,7 @@ body {
   right: 0;
 }
 
-.tooltip-container:hover .tooltiptext {
+.c-tooltip:hover .c-tooltip__description {
   visibility: visible;
 }
 
