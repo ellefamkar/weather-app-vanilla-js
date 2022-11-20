@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Fredoka+One&display=swap");
+@import url("./objects/wrapper.css");
 
 *,
 *::after,
 *::before {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-
 
 * {
   box-sizing: border-box;
@@ -18,15 +18,7 @@ body {
   font-family: "Dosis", sans-serif;
   /* font-family: "Fredoka One", cursive; */
 }
-.weather-app-container {
-  max-width: 810px;
-  margin: 3rem auto;
-  background-color: #252443;
-  box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
-  -webkit-box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
-  -moz-box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
-  box-shadow: 8px 9px 14px -7px rgba(0, 0, 0, 0.67);
-}
+
 .fa-magnifying-glass,
 .fa-map-pin {
   font-size: 20px;
@@ -45,10 +37,10 @@ body {
   left: -18px;
 }
 .weather-condition {
-    position: relative;
-    top: -59px;
-    left: -41px;
-    opacity: 0.4;
+  position: relative;
+  top: -59px;
+  left: -41px;
+  opacity: 0.4;
 }
 .weather-condition a {
   text-decoration: none;
@@ -90,31 +82,31 @@ body {
   line-height: 23px;
 }
 #country-title {
-width: 2ch;
- overflow: hidden;
-white-space: nowrap;
+  width: 2ch;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.temperature-emoji{
-    width: 130px;
-    height: auto;
-    top: -13px;
-    left: -10px;
-    right: -10px;
+.temperature-emoji {
+  width: 130px;
+  height: auto;
+  top: -13px;
+  left: -10px;
+  right: -10px;
 }
 
 .current-weather__description {
-    font-size: 14px;
-    opacity: 0.5;
-    line-height: 16px;
+  font-size: 14px;
+  opacity: 0.5;
+  line-height: 16px;
 }
 
-.current-weather__description p{
-    text-transform: capitalize;
+.current-weather__description p {
+  text-transform: capitalize;
 }
 
-.forecast-img{
-  width:55px;
+.forecast-img {
+  width: 55px;
 }
 
 .tooltip-container {
@@ -133,8 +125,8 @@ white-space: nowrap;
   position: absolute;
   z-index: 1;
   top: 30px;
-    left: 12px;
-    right :0;
+  left: 12px;
+  right: 0;
 }
 
 .tooltip-container:hover .tooltiptext {
